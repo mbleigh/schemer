@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"github.com/fatih/structs"
 	"reflect"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 type Schema struct {
@@ -42,7 +42,7 @@ func (schema *Schema) MarshalJSON() ([]byte, error) {
 	}
 
 	for k, v := range schema.tagProps {
-	  m[k] = v
+		m[k] = v
 	}
 
 	return json.Marshal(m)
@@ -54,30 +54,30 @@ func (schema *Schema) ApplyTaggedType(typ reflect.Type, tag string) {
 }
 
 func (schema *Schema) ApplyTag(tag string) {
-  rawProps := strings.Split(tag,",")
-  for i := range rawProps {
-    parts := strings.Split(rawProps[i], ":")
-    if len(parts) == 2 {
-      schema.applyTagProp(parts[0], parts[1])
-    }
-  }
+	rawProps := strings.Split(tag, ",")
+	for i := range rawProps {
+		parts := strings.Split(rawProps[i], ":")
+		if len(parts) == 2 {
+			schema.applyTagProp(parts[0], parts[1])
+		}
+	}
 }
 
 func (schema *Schema) applyTagProp(key string, raw string) error {
-  var err error
+	var err error
 
-  switch key {
-  case "multipleOf", "minimum", "maximum":
-    if strings.Index(raw,".") >= 0 {
-      schema.tagProps[key], err = strconv.ParseFloat(raw, 32)
-    } else {
-      schema.tagProps[key], err = strconv.ParseInt(raw, 10, 32)
-    }
-  default:
-    schema.tagProps[key] = raw
-  }
+	switch key {
+	case "multipleOf", "minimum", "maximum":
+		if strings.Index(raw, ".") >= 0 {
+			schema.tagProps[key], err = strconv.ParseFloat(raw, 32)
+		} else {
+			schema.tagProps[key], err = strconv.ParseInt(raw, 10, 32)
+		}
+	default:
+		schema.tagProps[key] = raw
+	}
 
-  return err
+	return err
 }
 
 func (schema *Schema) ApplyType(t reflect.Type) error {
