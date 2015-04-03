@@ -48,7 +48,7 @@ with `new(YourType)` or `(*YourType)(nil)`.
 ### Progress
 
 - [x] Basic type detection and generation of simple schema structure
-- [x] (partial) Tag detection for adding validation and other metadata to fields
+- [x] **PARTIAL IMPL** Tag detection for adding validation and other metadata to fields
 - [ ] Configurable handling of sub-resources with `$ref` etc. taken into account
 - [ ] Configurable strictness (i.e. all fields required, etc)
 - [ ] Schemas can have a definitions registry
