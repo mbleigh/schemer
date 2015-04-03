@@ -46,10 +46,10 @@ with `new(YourType)` or `(*YourType)(nil)`.
 ### Progress
 
 - [x] Basic type detection and generation of simple schema structure
-- [ ] Tag detection for adding validation and other metadata to fields
+- [x] (partial) Tag detection for adding validation and other metadata to fields
 - [ ] Configurable handling of sub-resources with `$ref` etc. taken into account
 - [ ] Configurable strictness (i.e. all fields required, etc)
 - [ ] Schemas can have a definitions registry
-- [ ] Properly parse the JSON tag data rather than blindly assuming it's the name
+- [x] Properly parse the JSON tag data rather than blindly assuming it's the name
 - [ ] Create examples that use e.g. [gojsonschema](https://github.com/xeipuuv/gojsonschema) to validate data based on Schemer output
 - [ ] Support JSON Hyper Schema
