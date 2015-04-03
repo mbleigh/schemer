@@ -7,13 +7,13 @@ import (
 )
 
 type User struct {
-	Id      int     `json:"id" schemer:"minimum:1000,maximum:2000"`
-	Name    string  `json:"name"`
-	Email   string  `json:"email"`
-	Address Address `json:"address"`
-	Balance float32 `json:"-"`
-	priv    string  `json:"-"`
-	anon    string  `json:",omitempty"`
+	Id        int       `json:"id" schemer:"minimum:1000,maximum:2000"`
+	Name      string    `json:"name"`
+	Email     string    `json:"email"`
+	Addresses []Address `json:"addresses"`
+	Balance   float32   `json:"-"`
+	priv      string    `json:"-"`
+	anon      string    `json:",omitempty"`
 }
 
 type Address struct {
